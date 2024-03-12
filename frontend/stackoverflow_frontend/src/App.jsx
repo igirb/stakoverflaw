@@ -1,35 +1,44 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Questions from './components/QuestionForm'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [title, setTitle] = useState('')
+    const [description, setQuestion] = useState('')
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    function handleSubmit(e) {
+        e.preventDefault()
+        const data = { title, description }
+        fetch('/api/question/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+
+    return (
+        <div className="App">
+            <form onSubmit={handleSubmit}>
+                <label>Title:
+                    <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+                </label>
+                <label>Comment:
+                    <input type='text' value={description} onChange={e => setQuestion(e.target.value)}/>
+                </label>
+                <button type='submit'>Send Question</button>
+            </form>
+            <Questions />
+        </div>
+    );
 }
 
-export default App
+export default App;
