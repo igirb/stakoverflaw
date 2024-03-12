@@ -31,7 +31,7 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
         PreparedStatement preparedStatement;
 
         try {
-            databaseConnection = getConnection();
+            databaseConnection = dbConnector.getConnection();
             preparedStatement = databaseConnection.prepareStatement(sql);
 
             preparedStatement.setString(1, question.title());
