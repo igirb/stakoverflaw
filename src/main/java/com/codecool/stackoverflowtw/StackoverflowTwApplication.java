@@ -11,15 +11,18 @@ import org.springframework.context.annotation.Bean;
 public class StackoverflowTwApplication {
 
 //    TODO: Add the url of your database to the Environment Variables of the Run Configuration
-//    @Value("${askmate.database.url}")
-//    private String databaseUrl;
+    @Value("${askmate.database.url}")
+    private String databaseUrl;
+    @Value("${askmate.database.username}")
+    private String username;
+    @Value("${askmate.database.password}")
+    private String password;
 
     public static void main(String[] args) {
         SpringApplication.run(StackoverflowTwApplication.class, args);
     }
-
     @Bean
     public QuestionsDAO questionsDAO() {
-        return new QuestionsDaoJdbc();
+        return new QuestionsDaoJdbc(databaseUrl, username, password);
     }
 }
