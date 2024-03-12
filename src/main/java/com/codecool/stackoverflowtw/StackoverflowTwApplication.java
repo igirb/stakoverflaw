@@ -12,16 +12,17 @@ import org.springframework.context.annotation.Bean;
 public class StackoverflowTwApplication {
 
 //    TODO: Add the url of your database to the Environment Variables of the Run Configuration
+
     //@Value("${askmate.database.url}")
     //private String databaseUrl;
 
     public static void main(String[] args) {
         SpringApplication.run(StackoverflowTwApplication.class, args);
     }
-
     @Bean
     public QuestionsDAO questionsDAO(DbConnector dbConnector) {
         return new QuestionsDaoJdbc(dbConnector);
+
     }
 
     @Bean
