@@ -6,6 +6,7 @@ import com.codecool.stackoverflowtw.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -30,9 +31,12 @@ public class QuestionController {
     }
 
     @PostMapping("/")
-    public int addNewQuestion(@RequestBody NewQuestionDTO question) {
+    public int addNewQuestion(@RequestBody NewQuestionDTO question) throws SQLException {
 //        TODO
-        throw new UnsupportedOperationException();
+
+        System.out.println(question.toString());
+        questionService.addNewQuestion(question);
+        return 1;
     }
 
     @DeleteMapping("/{id}")
