@@ -2,27 +2,19 @@ package com.codecool.stackoverflowtw.dao;
 
 import com.codecool.stackoverflowtw.controller.dto.NewQuestionDTO;
 import com.codecool.stackoverflowtw.dao.model.Question;
+import com.codecool.stackoverflowtw.service.DbConnector;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class QuestionsDaoJdbc implements QuestionsDAO {
-    private final String databaseUrl;
-    private final String username;
-    private final String password;
-    public QuestionsDaoJdbc(String databaseUrl, String username, String password) {
-        this.databaseUrl = databaseUrl;
-        this.username = username;
-        this.password = password;
-    }
-    public java.sql.Connection getConnection() {
-        try {
-            return DriverManager.getConnection(databaseUrl, username, password);
-        } catch (SQLException ex) {
-            System.err.println("Could not create database connection.");
-            throw new RuntimeException(ex);
-        }
+
+    DbConnector dbConnector;
+
+    public QuestionsDaoJdbc(DbConnector dbConnector) {
+        this.dbConnector = dbConnector;
     }
 
     @Override
