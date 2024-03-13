@@ -34,7 +34,7 @@ public class AnswerService {
     }
 
     public int addNewAnswer(NewAnswerDTO answer) throws SQLException {
-        Answer modelAnswer = new Answer(0, answer.message(), LocalDateTime.now(), answer.questionID());
+        Answer modelAnswer = new Answer(0, answer.message(), LocalDateTime.now(), answer.questionId());
         int resp = answerDAO.addNewAnswer(modelAnswer);
         return resp;
     }
@@ -44,7 +44,7 @@ public class AnswerService {
         System.out.println("hhelz");
         List<AnswerDTO> answerDTOS = new ArrayList<>();
         for (Answer answer : answers) {
-            answerDTOS.add(new AnswerDTO(answer.id(), answer.message(), answer.submission(), answer.questionID()));
+            answerDTOS.add(new AnswerDTO(answer.id(), answer.message(), answer.submission(), answer.questionId()));
         }
         return answerDTOS;
     }
