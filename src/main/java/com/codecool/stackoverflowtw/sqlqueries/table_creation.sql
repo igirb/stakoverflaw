@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS answers
     message     VARCHAR(255) NOT NULL,
     submission  TIMESTAMP,
     question_id INT REFERENCES questions (id)
-)
+);
 
 
 CREATE TABLE IF NOT EXISTS users (
@@ -23,3 +23,7 @@ CREATE TABLE IF NOT EXISTS users (
                        created TIMESTAMP
 );
 
+ALTER TABLE questions
+ADD answer_count int DEFAULT 0;
+
+UPDATE questions SET answer_count = answer_count + 1 WHERE id = 14

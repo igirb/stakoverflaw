@@ -50,6 +50,7 @@ const Questions = () => {
         <div className="questions">
             <button onClick={() => handleSort("title")}>Sort by title</button>
             <button onClick={() => handleSort("date")}>Latest Questions</button>
+            <button onClick={() => handleSort("answerCount")}>Hottest Topics</button>
             {showSorted ? (
                 <div>
                     {sortedQuestions.map((question, index) => (
@@ -63,7 +64,7 @@ const Questions = () => {
                 </div>
             ) : (
                 <div>
-                    {displayQuestions.map((question, index) => (
+                    {displayQuestions && displayQuestions.map((question, index) => (
                         <div key={index}>
                             <h3>Title: {question.title}</h3>
                             <h5>Question: {question.description}</h5>

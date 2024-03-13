@@ -120,4 +120,24 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
         return getQuestions(sql);
     }
 
+    @Override
+    public void incrementAmountOfAnswers(int id) {
+        String sql = "UPDATE questions SET answer_count = answer_count + 1 WHERE id = ?";
+
+        try (Connection conn = dbConnector.getConnection();
+        PreparedStatement pstmnt = conn.prepareStatement(sql)){
+            pstmnt.setInt(1, id);
+
+            pstmnt.executeUpdate();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Question> getAllQuestionsSortedByAnswer() {
+        String sql = "SELECT id, title, description, answer_count FROM questions ORDER BY answer_count DESC";
+        return getQuestions(sql);
+    }
+
 }
