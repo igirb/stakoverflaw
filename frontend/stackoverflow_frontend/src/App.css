@@ -5,35 +5,3 @@
   text-align: center;
   background-color: #66a3ff;
 }
-
-.questions {
-  align-content: center;
-
-}
-
-.border {
-  background-color: #1a1a1a;
-  height: 1px;
-}
-.h5 {
-  max-width: 10%;
-}
-.input {
-  margin: 10px;
-}
-
-.titleLabel {
-  margin-right: 5px;
-}
-
-.descriptionLabel {
-  margin: 5px;
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

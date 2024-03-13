@@ -41,7 +41,6 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
             preparedStatement.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
 
             preparedStatement.executeUpdate();
-
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

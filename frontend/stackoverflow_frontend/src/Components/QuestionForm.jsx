@@ -67,6 +67,7 @@ const Questions = () => {
                         <div key={index}>
                             <h3>Title: {question.title}</h3>
                             <h5>Question: {question.description}</h5>
+
                             <button onClick={() => handleDelete(question.id)}>Delete</button>
                             <button onClick={handleShowAnswers}>Show answers</button>
                         </div>
