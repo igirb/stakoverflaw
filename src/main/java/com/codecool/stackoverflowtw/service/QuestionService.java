@@ -21,6 +21,22 @@ public class QuestionService {
         this.questionsDAO = questionsDAO;
     }
 
+    public List<QuestionDTO> getAllQuestionsSorted() {
+        List<Question> sortedQuestions = questionsDAO.getAllQuestionsSorted();
+        List<QuestionDTO> questionDTOS = new ArrayList<>();
+        for (Question question : sortedQuestions){
+            questionDTOS.add(new QuestionDTO(question.id(), question.title(), question.description(), LocalDateTime.now()));
+        }
+        return questionDTOS;
+    }
+    public List<QuestionDTO> getAllQuestionsSortedByDate() {
+        List<Question> sortedByTime = questionsDAO.getAllQuestionsSortedByDate();
+        List<QuestionDTO> questionDTOS = new ArrayList<>();
+        for (Question question : sortedByTime){
+            questionDTOS.add(new QuestionDTO(question.id(), question.title(), question.description(), LocalDateTime.now()));
+        }
+        return questionDTOS;
+    }
     public List<QuestionDTO> getAllQuestions() {
         List<Question> allQuestions = questionsDAO.getAllQuestions();
         // TODO convert data to QuestionDTO
@@ -31,17 +47,20 @@ public class QuestionService {
         return questionDTOS;
     }
 
-    public QuestionDTO getQuestionById(int id) {
+    public Question getQuestionById(int id) {
         // TODO
-        throw new UnsupportedOperationException();
+        QuestionDTO questionDTO = questionsDAO.getQuestionById(id);
+        return new Question(questionDTO.id(), questionDTO.title(), questionDTO.description());
     }
 
     public boolean deleteQuestionById(int id) {
         // TODO
-        throw new UnsupportedOperationException();
+        questionsDAO.deleteQuestionById(id);
+        return true;
     }
 
     public void addNewQuestion(NewQuestionDTO question) throws SQLException {
        questionsDAO.addNewQuestion(question);
     }
+
 }

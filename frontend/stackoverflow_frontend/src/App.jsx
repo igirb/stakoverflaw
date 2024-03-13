@@ -1,46 +1,56 @@
+
 import { useState } from 'react'
 import './App.css'
 import Questions from './Components/QuestionForm'
 import Answers from './Components/Answers'
+import Registration from './Components/Registration.jsx';
 
 function App() {
-    const [title, setTitle] = useState('')
-    const [description, setQuestion] = useState('')
-    const [show, setShow] = useState(false);
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('')
+    const [showRegistration, setShowRegistration] = useState(false);
 
     function handleSubmit(e) {
-        e.preventDefault()
-        const data = { title, description }
+        const data = { title, description };
         fetch('/api/question/', {
+
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         })
-            .then(response => response.json())
-            .then(response => {
+            .then((response) => response.json())
+            .then((response) => {
                 console.log(response);
             })
-            .catch(err => {
+            .catch((err) => {
                 console.error(err);
-            })
+            });
     }
 
+    const handleRegistrationButton = () => {
+        setShowRegistration(!showRegistration);
+    };
+
     return (
-        <div className="App">
+        <div className="container">
+          <h1>Stakkowerflov</h1>
+            <button className="RegistrationButton" onClick={handleRegistrationButton}>
+                {showRegistration ? 'Back' : 'Join'}
+            </button>
+            {showRegistration && <Registration onHide={handleRegistrationButton} />}
             <form onSubmit={handleSubmit}>
-                <label>Title:
-                    <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+                <label className={"titleLabel"}>Title:
+                    <input className={"input"} type="text" value={title} onChange={e => setTitle(e.target.value)} />
                 </label>
-                <label>Comment:
-                    <input type='text' value={description} onChange={e => setQuestion(e.target.value)}/>
+                <label className={"descriptionLabel"}>Question:
+                    <input type='text' value={description} onChange={e => setDescription(e.target.value)}/>
                 </label>
-                <button type='submit'>Send Question</button>
+                <button type="submit">Send Question</button>
             </form>
+            <div className={"border"}> t</div>
             <Questions />
-            <button onClick={() => setShow(true)} >Show answers</button>
-            { !show ? "" : <Answers questionId={question.id} /> }
         </div>
     );
 }

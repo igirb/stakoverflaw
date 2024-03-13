@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS questions
 (
     id          SERIAL PRIMARY KEY,
@@ -13,4 +14,12 @@ CREATE TABLE IF NOT EXISTS answers
     submission  TIMESTAMP,
     question_id INT REFERENCES questions (id)
 )
+
+
+CREATE TABLE IF NOT EXISTS users (
+                       user_id SERIAL PRIMARY KEY,
+                       username VARCHAR(255) NOT NULL,
+                       password VARCHAR(255) NOT NULL,
+                       created TIMESTAMP
+);
 
