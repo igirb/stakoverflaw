@@ -18,7 +18,7 @@ public class DbConnector {
     public Connection getConnection() {
         Connection conn;
         try {
-            String url = "jdbc:postgresql:" + dbFile;
+            String url = dbFile;
             conn = DriverManager.getConnection(url, username, password);
             System.out.println("Connection to PSQL has been established.");
             return conn;

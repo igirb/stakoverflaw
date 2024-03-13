@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import Questions from './components/QuestionForm'
+import Questions from './Components/QuestionForm'
+import Answers from './Components/Answers'
 
 function App() {
     const [title, setTitle] = useState('')
     const [description, setQuestion] = useState('')
+    const [show, setShow] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -37,6 +39,8 @@ function App() {
                 <button type='submit'>Send Question</button>
             </form>
             <Questions />
+            <button onClick={() => setShow(true)} >Show answers</button>
+            { !show ? "" : <Answers questionId={question.id} /> }
         </div>
     );
 }
