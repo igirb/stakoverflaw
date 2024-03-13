@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS answers
     message     VARCHAR(255) NOT NULL,
     submission  TIMESTAMP,
     question_id INT REFERENCES questions (id)
-)
+);
 
 
 CREATE TABLE IF NOT EXISTS users (

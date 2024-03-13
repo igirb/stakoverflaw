@@ -1,6 +1,5 @@
 package com.codecool.stackoverflowtw.dao;
 
-import com.codecool.stackoverflowtw.controller.dto.NewAnswerDTO;
 import com.codecool.stackoverflowtw.dao.model.Answer;
 import com.codecool.stackoverflowtw.service.DbConnector;
 
@@ -77,7 +76,7 @@ public class AnswersDaoJdbc implements AnswerDAO {
 
             preparedStatement.setString(1, answer.message());
             preparedStatement.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now()));
-            preparedStatement.setInt(3, answer.questionID());
+            preparedStatement.setInt(3, answer.questionId());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
