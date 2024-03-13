@@ -30,7 +30,7 @@ const Questions = () => {
                     {displayQuestions.map((question, index) => (
                         <div key={index}>
                             <h3>Title: {question.title}</h3>
-                            <h5>Question: {question.comment}</h5>
+                            <h5>Question: {question.description}</h5>
                         </div>
                     ))}
                 </div>
