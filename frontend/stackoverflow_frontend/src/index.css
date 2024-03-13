@@ -5,7 +5,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   text-align: center;
-  background: rgb(205, 123, 229);
+  background: rgb(13, 68, 245);
   color: aliceblue;
   font-family: 'Vibrant-Display', sans-serif;
   font-weight: lighter;
@@ -49,13 +49,17 @@ button {
   cursor: pointer;
   border: 2px solid #333;
   color: #333;
-  background-color: #49f5c1;
+  background-color: #f1e61e;
   transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
   background-color: #333;
   color: #fff;
+}
+
+h1{
+  font-size: 70px;
 }
 
 .Registration {
