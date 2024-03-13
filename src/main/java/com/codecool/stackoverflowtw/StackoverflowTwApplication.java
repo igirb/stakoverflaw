@@ -2,6 +2,8 @@ package com.codecool.stackoverflowtw;
 
 import com.codecool.stackoverflowtw.dao.QuestionsDAO;
 import com.codecool.stackoverflowtw.dao.QuestionsDaoJdbc;
+import com.codecool.stackoverflowtw.dao.UsersDAO;
+import com.codecool.stackoverflowtw.dao.UsersDaoJdbc;
 import com.codecool.stackoverflowtw.service.DbConnector;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -23,7 +25,10 @@ public class StackoverflowTwApplication {
     @Bean
     public QuestionsDAO questionsDAO(DbConnector dbConnector) {
         return new QuestionsDaoJdbc(dbConnector);
-
+    }
+    @Bean
+    public UsersDAO usersDAO(DbConnector dbConnector) {
+        return new UsersDaoJdbc(dbConnector);
     }
 
     @Bean

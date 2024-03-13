@@ -39,13 +39,6 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
             preparedStatement.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
 
             preparedStatement.executeUpdate();
-
-//            if (rowsAffected > 0) {
-//                generatedKeys = preparedStatement.getGeneratedKeys();
-//                if (generatedKeys.next()) {
-//                    newQuestionId = generatedKeys.getInt(1);
-//                }
-//            }
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
