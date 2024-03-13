@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import './App.css';
 import Questions from './Components/QuestionForm';
@@ -5,12 +6,13 @@ import Registration from './Components/Registration.jsx';
 
 function App() {
     const [title, setTitle] = useState('');
-    const [description, setQuestion] = useState('');
+    const [description, setDescription] = useState('')
     const [showRegistration, setShowRegistration] = useState(false);
 
     function handleSubmit(e) {
         const data = { title, description };
         fetch('/api/question/', {
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,21 +34,21 @@ function App() {
 
     return (
         <div className="container">
+          <h1>Stakkowerflov</h1>
             <button className="RegistrationButton" onClick={handleRegistrationButton}>
                 {showRegistration ? 'Back' : 'Join'}
             </button>
             {showRegistration && <Registration onHide={handleRegistrationButton} />}
             <form onSubmit={handleSubmit}>
-                <label>
-                    Title:
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                <label className={"titleLabel"}>Title:
+                    <input className={"input"} type="text" value={title} onChange={e => setTitle(e.target.value)} />
                 </label>
-                <label>
-                    Comment:
-                    <input type="text" value={description} onChange={(e) => setQuestion(e.target.value)} />
+                <label className={"descriptionLabel"}>Question:
+                    <input type='text' value={description} onChange={e => setDescription(e.target.value)}/>
                 </label>
                 <button type="submit">Send Question</button>
             </form>
+            <div className={"border"}> t</div>
             <Questions />
         </div>
     );
