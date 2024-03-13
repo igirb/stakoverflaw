@@ -13,7 +13,7 @@ function App() {
 
     function handleSubmit(e) {
         const data = { title, description };
-        fetch('/api/question/', {
+        fetch('/api/question/add', {
 
             method: 'POST',
             headers: {

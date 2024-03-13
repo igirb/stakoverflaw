@@ -104,7 +104,7 @@ public class AnswersDaoJdbc implements AnswerDAO {
     }
 
     @Override
-    public int deleteAnswer(int id) {
+    public boolean deleteAnswer(int id) {
         String sql = "DELETE FROM answers WHERE id = ?";
 
         Connection databaseConnection;
@@ -114,10 +114,11 @@ public class AnswersDaoJdbc implements AnswerDAO {
             preparedStatement = databaseConnection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return false;
         }
-        return 0;
     }
 
     @Override

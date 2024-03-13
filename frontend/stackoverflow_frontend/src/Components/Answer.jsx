@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-const Answer = ({answer}) => {
+const Answer = ({answer, index}) => {
     
     return <div>
-        <p>{answer.message}</p>
-        <p>{answer.submission}</p>
-        <p>{answer.id}</p>
+        <h3>{index + 1}. Answer: {answer.message}</h3>
     </div>
 }
 

@@ -31,4 +31,8 @@ public class AnswerController {
         int resp = answerService.addNewAnswer(answerDTO);
         return resp;
     }
+    @DeleteMapping("/{id}")
+    public boolean deleteAnswerById(@PathVariable int id){
+        return answerService.deleteAnswerById(id);
+    }
 }

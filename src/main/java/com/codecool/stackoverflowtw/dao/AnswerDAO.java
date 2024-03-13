@@ -16,6 +16,6 @@ public interface AnswerDAO {
 
     int updateAnswer(Answer answer);
 
-    int deleteAnswer(int id);
+    boolean deleteAnswer(int id);
     boolean deleteAll();
 }
