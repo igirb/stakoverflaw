@@ -19,13 +19,15 @@ public class QuestionController {
     public QuestionController(QuestionService questionService) {
         this.questionService = questionService;
     }
-    @GetMapping("/sorted/title")
-    public List<QuestionDTO> getAllQuestionsSorted() {
-        return questionService.getAllQuestionsSorted();
-    }
-    @GetMapping("/sorted/date")
-    public List<QuestionDTO> getAllQuestionsSortedByDate() {
-        return questionService.getAllQuestionsSortedByDate();
+    //title, date, answersCount
+    @GetMapping("/sorted/{criteria}")
+    public List<QuestionDTO> getAllQuestionsSorted(@PathVariable String criteria) {
+        return switch (criteria) {
+            case "title" -> questionService.getAllQuestionsSorted();
+            case "date" -> questionService.getAllQuestionsSortedByDate();
+            case "answerCount" -> questionService.getAllQuestionsSortedByAnswer();
+            default -> throw new IllegalArgumentException("No sorting criteria exists.");
+        };
     }
     @GetMapping("/all")
     public List<QuestionDTO> getAllQuestions() {
@@ -44,7 +46,10 @@ public class QuestionController {
         questionService.addNewQuestion(question);
         return 1;
     }
-
+    @PostMapping("/increment/{id}")
+    public void incrementAmountOfAnswers(@PathVariable int id) throws SQLException {
+        questionService.incrementAmountOfAnswers(id);
+    }
     @DeleteMapping("/{id}")
     public boolean deleteQuestionById(@PathVariable int id) {
 //        TODO

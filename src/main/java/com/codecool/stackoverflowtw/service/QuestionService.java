@@ -21,6 +21,14 @@ public class QuestionService {
         this.questionsDAO = questionsDAO;
     }
 
+    public List<QuestionDTO> getAllQuestionsSortedByAnswer() {
+        List<Question> sortedByAnswer =  questionsDAO.getAllQuestionsSortedByAnswer();
+        List<QuestionDTO> questionDTOS = new ArrayList<>();
+        for (Question question : sortedByAnswer){
+            questionDTOS.add(new QuestionDTO(question.id(), question.title(), question.description(), LocalDateTime.now()));
+        }
+        return questionDTOS;
+    }
     public List<QuestionDTO> getAllQuestionsSorted() {
         List<Question> sortedQuestions = questionsDAO.getAllQuestionsSorted();
         List<QuestionDTO> questionDTOS = new ArrayList<>();
@@ -61,6 +69,10 @@ public class QuestionService {
 
     public void addNewQuestion(NewQuestionDTO question) throws SQLException {
        questionsDAO.addNewQuestion(question);
+    }
+
+    public void incrementAmountOfAnswers(int id) {
+        questionsDAO.incrementAmountOfAnswers(id);
     }
 
 }
