@@ -1,7 +1,8 @@
 
-import { useState } from 'react';
-import './App.css';
-import Questions from './Components/QuestionForm';
+import { useState } from 'react'
+import './App.css'
+import Questions from './Components/QuestionForm'
+import Answers from './Components/Answers'
 import Registration from './Components/Registration.jsx';
 
 function App() {

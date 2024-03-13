@@ -1,5 +1,7 @@
 package com.codecool.stackoverflowtw;
 
+import com.codecool.stackoverflowtw.dao.AnswerDAO;
+import com.codecool.stackoverflowtw.dao.AnswersDaoJdbc;
 import com.codecool.stackoverflowtw.dao.QuestionsDAO;
 import com.codecool.stackoverflowtw.dao.QuestionsDaoJdbc;
 import com.codecool.stackoverflowtw.dao.UsersDAO;
@@ -33,4 +35,9 @@ public class StackoverflowTwApplication {
 
     @Bean
     public DbConnector dbConnector() { return new DbConnector(); }
+
+    @Bean
+    public AnswerDAO answerDAO(DbConnector dbConnector){
+        return new AnswersDaoJdbc(dbConnector);
+    }
 }
