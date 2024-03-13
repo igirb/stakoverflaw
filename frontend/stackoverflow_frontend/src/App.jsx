@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import './App.css'
-import Questions from './components/QuestionForm'
+import Questions from './Components/QuestionForm'
 
 function App() {
     const [title, setTitle] = useState('')
-    const [description, setQuestion] = useState('')
+    const [description, setDescription] = useState('')
 
     function handleSubmit(e) {
-        e.preventDefault()
+       // e.preventDefault()
         const data = { title, description }
-        fetch('/api/question/', {
+        fetch('/api/question/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,15 +27,17 @@ function App() {
 
     return (
         <div className="App">
+            <h1>Stakkowerflov</h1>
             <form onSubmit={handleSubmit}>
-                <label>Title:
-                    <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+                <label className={"titleLabel"}>Title:
+                    <input className={"input"} type="text" value={title} onChange={e => setTitle(e.target.value)} />
                 </label>
-                <label>Comment:
-                    <input type='text' value={description} onChange={e => setQuestion(e.target.value)}/>
+                <label className={"descriptionLabel"}>Question:
+                    <input type='text' value={description} onChange={e => setDescription(e.target.value)}/>
                 </label>
                 <button type='submit'>Send Question</button>
             </form>
+            <div className={"border"}> t</div>
             <Questions />
         </div>
     );
