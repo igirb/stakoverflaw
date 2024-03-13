@@ -4,11 +4,12 @@ import './App.css'
 import Questions from './Components/QuestionForm';
 import Answers from './Components/Answers';
 import Registration from './Components/Registration.jsx';
+import Users from "./Components/Users.jsx";
+import Login from "./Components/Login.jsx";
 
 function App() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('')
-    const [showRegistration, setShowRegistration] = useState(false);
 
     function handleSubmit(e) {
         const data = { title, description };
@@ -29,17 +30,11 @@ function App() {
             });
     }
 
-    const handleRegistrationButton = () => {
-        setShowRegistration(!showRegistration);
-    };
-
     return (
         <div className="container">
-          <h1>Stakkowerflov</h1>
-            <button className="RegistrationButton" onClick={handleRegistrationButton}>
-                {showRegistration ? 'Back' : 'Join'}
-            </button>
-            {showRegistration && <Registration onHide={handleRegistrationButton} />}
+          <h1>STAKKOWERFLOV</h1>
+            <Registration />
+            <Login />
             <form onSubmit={handleSubmit}>
                 <label className={"titleLabel"}>Title:
                     <input className={"input"} type="text" value={title} onChange={e => setTitle(e.target.value)} />
@@ -50,6 +45,7 @@ function App() {
                 <button type="submit">Send Question</button>
             </form>
             <Questions />
+            <Users />
         </div>
     );
 }

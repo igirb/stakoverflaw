@@ -13,4 +13,6 @@ public interface UsersDAO {
     int addNewUser(NewUserDTO user) throws SQLException;
     boolean updateUserById(int id, String username, String password);
     boolean deleteUserById(int id);
+
+    public boolean authenticateUser(NewUserDTO user);
 }

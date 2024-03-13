@@ -43,4 +43,8 @@ public class UserService {
     public void addNewUser(NewUserDTO user) throws SQLException {
         usersDAO.addNewUser(user);
     }
+
+    public boolean authenticateUser(NewUserDTO user) {
+        return usersDAO.authenticateUser(user);
+    }
 }

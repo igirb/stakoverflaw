@@ -58,11 +58,32 @@ button:hover {
   color: #fff;
 }
 
-h1{
-  font-size: 70px;
+.loggedUser{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: #f1e61e;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #333;
 }
 
-.Registration {
+h1{
+  font-size: 70px;
+  color: #f1e61e;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #333;
+}
+
+h3{
+  font-size: 20px;
+}
+
+h5{
+  font-size: 15px;
+}
+
+.Registration, .Login {
   position: fixed;
   top: 10px;
   z-index: 1000;
@@ -71,6 +92,12 @@ h1{
 .RegistrationButton {
   position: fixed;
   top: 10px;
-  right: 10px;
+  right: 10%;
   z-index: 1000;
+}
+
+.LoginButton{
+  position: fixed;
+  top: 10px;
+  right: 1%;
 }

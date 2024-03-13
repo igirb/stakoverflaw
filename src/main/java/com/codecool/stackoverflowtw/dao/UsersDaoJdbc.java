@@ -1,6 +1,7 @@
 package com.codecool.stackoverflowtw.dao;
 
 import com.codecool.stackoverflowtw.controller.dto.NewUserDTO;
+import com.codecool.stackoverflowtw.controller.dto.UserDTO;
 import com.codecool.stackoverflowtw.dao.model.User;
 import com.codecool.stackoverflowtw.service.DbConnector;
 
@@ -75,6 +76,7 @@ public class UsersDaoJdbc implements UsersDAO {
         return 200;
     }
 
+
     @Override
     public boolean updateUserById(int id, String username, String password) {
         String sql = "UPDATE users SET username = ?,"
@@ -108,5 +110,30 @@ public class UsersDaoJdbc implements UsersDAO {
             return false;
         }
     }
+
+    @Override
+    public boolean authenticateUser(NewUserDTO user) {
+        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+
+        try (Connection connection = dbConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, user.username());
+            preparedStatement.setString(2, user.password());
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    System.out.println("User is available");
+                    return true;
+                } else {
+                    System.out.println("User is not logged in");
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error authenticating user: " + e.getMessage());
+            return false;
+        }
+    }
+
 
 }

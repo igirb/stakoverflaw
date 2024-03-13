@@ -1,10 +1,7 @@
 package com.codecool.stackoverflowtw.controller;
 
-import com.codecool.stackoverflowtw.controller.dto.NewQuestionDTO;
 import com.codecool.stackoverflowtw.controller.dto.NewUserDTO;
-import com.codecool.stackoverflowtw.controller.dto.QuestionDTO;
 import com.codecool.stackoverflowtw.controller.dto.UserDTO;
-import com.codecool.stackoverflowtw.service.QuestionService;
 import com.codecool.stackoverflowtw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +20,7 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    public List<UserDTO> getAllQuestions() {
+    public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
@@ -36,6 +33,11 @@ public class UserController {
     public int addNewUser(@RequestBody NewUserDTO user) throws SQLException {
         userService.addNewUser(user);
         return 200;
+    }
+
+    @PostMapping("/authenticate")
+    public boolean authenticateUser(@RequestBody NewUserDTO user) throws SQLException {
+        return userService.authenticateUser(user);
     }
 
     @DeleteMapping("/{id}")
