@@ -53,8 +53,8 @@ const Questions = () => {
                 <div>
                     {sortedQuestions.map((question, index) => (
                         <div key={index}>
-                            <h3>Title: {question.title}</h3>
-                            <text>Question: {question.description}</text>
+                            <h3>{question.title}</h3>
+                            <text>{question.description}</text>
                             <button onClick={() => handleDelete(question.id)}>Delete</button>
                             <Link to={`/answer/question/${question.id}`} >
                                 <button>Show answers</button>
@@ -66,14 +66,13 @@ const Questions = () => {
                 <div>
                     {displayQuestions && displayQuestions.map((question, index) => (
                         <div key={index}>
-                            <h3>Title: {question.title}</h3>
-                            <h5>Question: {question.description}</h5>
+                            <h3>{question.title}</h3>
+                            <h5>{question.description}</h5>
 
                             <button onClick={() => handleDelete(question.id)}>Delete</button>
                             <Link to={`/answer/question/${question.id}`} >
                             <button>Show answers</button>
                             </Link>
-
                         </div>
                     ))}
                 </div>

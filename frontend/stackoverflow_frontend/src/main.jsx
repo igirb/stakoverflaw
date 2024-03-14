@@ -5,6 +5,7 @@ import './index.css'
 import {createBrowserRouter, RouterProvider, useParams} from "react-router-dom";
 import Questions from './Components/QuestionForm.jsx'
 import Answers from './Components/Answers.jsx'
+import Users from "./Components/Users.jsx";
 
 const router = createBrowserRouter([
     //const { id } = useParams()
@@ -16,8 +17,10 @@ const router = createBrowserRouter([
         path: "/answer/question/:questionId",
         element: <Answers />
     },
-
-
+    {
+        path: "/users",
+        element: <Users />
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

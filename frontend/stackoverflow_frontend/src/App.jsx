@@ -6,14 +6,16 @@ import Answers from './Components/Answers';
 import Registration from './Components/Registration.jsx';
 import Users from "./Components/Users.jsx";
 import Login from "./Components/Login.jsx";
+import {Link} from "react-router-dom";
 
 function App() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('')
 
     function handleSubmit(e) {
+        e.preventDefault()
         const data = { title, description };
-        fetch('/api/question/', {
+        fetch('/api/question/add', {
 
             method: 'POST',
             headers: {
@@ -32,6 +34,9 @@ function App() {
 
     return (
         <div className="container">
+            <Link to={"/users"} >
+                <button className={"online"}>Who's online</button>
+            </Link>
           <h1>STAKKOWERFLOV</h1>
             <Registration />
             <Login />
@@ -45,7 +50,6 @@ function App() {
                 <button type="submit">Send Question</button>
             </form>
             <Questions />
-            <Users />
         </div>
     );
 }
