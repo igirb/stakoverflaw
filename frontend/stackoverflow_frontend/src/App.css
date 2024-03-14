@@ -4,3 +4,11 @@
   padding: 30px;
   text-align: center;
 }
+.online {
+  position: fixed;
+  right: 20px;
+  top: 10%;
+}
+.users_online {
+  top: 20px;
+}

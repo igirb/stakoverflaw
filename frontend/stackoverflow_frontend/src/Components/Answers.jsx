@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react"
 import Answer from "./Answer";
-import {useParams} from "react-router-dom";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+
 
 const fetchAnswers = async (questionId) => {
     const response = await fetch(`/api/answer/question/${questionId}`);
@@ -32,6 +32,7 @@ const Answers = () => {
     const [question, setQuestion] = useState(null);
     console.log(questionId)
 
+
     useEffect(() => {
         fetchAnswers(questionId)
             .then(data => {
@@ -44,8 +45,9 @@ const Answers = () => {
             })
     }, []);
 
-    function handleSubmit() {
-        const data = {message, questionId};
+    function handleSubmit(e) {
+        e.preventDefault()
+        const data = { message, questionId };
         fetch('/api/answer/', {
 
             method: 'POST',
@@ -57,6 +59,24 @@ const Answers = () => {
             .then((response) => response.json())
             .then((response) => {
                 console.log(response);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+
+        const questionIdToIncrement = { questionId };
+        fetch(`/api/question/increment/${questionId}`, {
+
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(questionIdToIncrement),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
+                console.log("heeeeeey")
                 window.location.reload();
             })
             .catch((err) => {
@@ -103,6 +123,9 @@ const Answers = () => {
             </label>
             <button type="submit">Send Answer</button>
         </form>
+        <Link to={"/"}>
+            <button>Back</button>
+        </Link>
     </div>
 }
 

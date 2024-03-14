@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 const Users = () => {
     const [displayUsers, setDisplayUsers] = useState([]);
@@ -29,6 +30,7 @@ const Users = () => {
 
     return (
         <div className="users">
+            <h3 className="users_headline">Users currently online</h3>
                 <div>
                     {displayUsers.map((user, index) => (
                         <div key={index}>
@@ -37,6 +39,9 @@ const Users = () => {
                         </div>
                     ))}
                 </div>
+            <Link to={"/"}>
+            <button>Back</button>
+            </Link>
         </div>
     );
 };
