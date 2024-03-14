@@ -29,9 +29,7 @@ public class AnswerService {
         throw new UnsupportedOperationException();
     }
 
-    public boolean deleteAnswerById(int id) {
-        throw new UnsupportedOperationException();
-    }
+
 
     public int addNewAnswer(NewAnswerDTO answer) throws SQLException {
         Answer modelAnswer = new Answer(0, answer.message(), LocalDateTime.now(), answer.questionId());
@@ -47,6 +45,11 @@ public class AnswerService {
             answerDTOS.add(new AnswerDTO(answer.id(), answer.message(), answer.submission(), answer.questionId()));
         }
         return answerDTOS;
+    }
+
+    public boolean deleteAnswerById(int id) {
+        answerDAO.deleteAnswer(id);
+        return true;
     }
 
 }
