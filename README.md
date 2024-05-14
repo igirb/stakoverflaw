@@ -36,4 +36,4 @@ Configure your database connection by setting up environmental variables within 
 
 ### 5. Start SpringApplication:
 
-`java -jar stackoverflow.jar`
+`java -jar StackoverflowTwApplication.jar`
