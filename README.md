@@ -1,36 +1,39 @@
-<<<<<<< HEAD
-# stakoverflaw
-=======
-# Stackoverflow TW Project
+# Stackoverflow China Edition
 
-- Main page listing all questions with details, date and answer count
-- Feature to sort questions on Main page by alphabet, date or answer count
-- Detail page of a question shows who asked it and lists all answers with date and users
-- Feature to add new question (redirects to question detail page after save)
-- Feature to add new answer (location: question detail page)
-- Feature to delete question (later extend so only the owner can delete it)
-- Feature to delete answer (location: question delete page) (later extend so only the owner can delete it)
-- Feature to Register new user
-- Feature to Login with user and store session (who is currently logged in is always visible on frontend)
-- Feature to Logout user
-- Users list page: shows username, registration date, number of questions, number of answers
-- Feature to mark the accepted answer for the user's own question
-- Write tests for the service layer
+## Project Overview
 
-#### Extra:
-- OPTIONAL: Admin user type can delete any question or answer
-- OPTIONAL: Filter by question titles  (location: main page)
-- OPTIONAL: Feature to tag questions
-- OPTIONAL: Feature to edit questions (limited to the ones created by the user)
-- OPTIONAL: Feature to edit answers (limited to the ones created by the user)
-- OPTIONAL: Feature to calculate reputation of the user and display them differently if they are very active on the site (display reputation on user list page too)
+During our Object-Oriented Programming module's Teamwork week, we embarked on an exciting journey to develop a Stackoverflow replica Spring Boot Web API, inspired by the renowned Stackoverflow platform. Our project, affectionately dubbed "Stackoverflow China Edition," serves as our final team endeavor, showcasing our mastery of Java technologies.
 
-## General requirements: 
-- Create an SQL database to store your data
-- Stick to Model View Controller layers (Frontend doesn't do calculations, only displays the data, SQL handles the data manipulation)
-- Do the base data features first and add user management later, extend already existing ones if necessary 
-- Aim for the code to keep SOLID, OOP and Clean code principles
-- Focus on the Java & SQL parts and do minimal frontend as it is not the goal of this project
-- Vanilla Javascript and HTML is suggested for frontend, nothing more complicated (like frameworks) is necessary 
-- If you need new API endpoints ask mentors to create them for you
->>>>>>> development
+## Project Highlights 🚀
+
+Get ready to immerse yourself in the world of Stackoverflow with our China-inspired clone! Our project empowers users to create and manage questions and answers, just like the original platform. Here's a sneak peek into our technology stack:
+
+- **Backend Magic**: Harnessing the power of Java (Spring Boot 3), we've crafted a robust backend system to handle all your requests and responses with finesse.
+- **Data Dynamo**: Behind the scenes, PostgreSQL works tirelessly to efficiently manage our vast database of questions and answers.
+- **Frontend Tricks**: Empowered by React Vite, our frontend dazzles with lightning-fast performance and cutting-edge features, offering users an immersive experience like never before.
+
+## Installation Guide 🛠️
+
+Ready to dive in? Follow these simple steps to set up "Stackoverflow China Edition" on your machine:
+
+### 1. Clone the Repository
+
+```bash
+git clone <REPO_LINK>
+```
+
+### 2. Database Setup
+
+Configure your database connection by setting up environmental variables within the project. Ensure you have the following variables set: `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_URL`.
+
+### 3. Install dependencies by running:
+
+`npm install`
+
+### 4. Start React:
+
+`cd frontend` -> `cd stackoverflow_frontend` -> `npm run dev`
+
+### 5. Start SpringApplication:
+
+`java -jar stackoverflow.jar`
