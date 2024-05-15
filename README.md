@@ -37,3 +37,16 @@ Configure your database connection by setting up environmental variables within 
 ### 5. Start SpringApplication:
 
 `java -jar StackoverflowTwApplication.jar`
+
+## Features
+
+🟣 Register with fictional information (username and password, not yet encrypted).
+🟢 Login to the site.
+🔵 Post new questions and answers.
+🟠 Manage your questions and answers by deleting them.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+If you found this project useful and would like to get in touch, feel free to contact me on [LinkedIn](https://www.linkedin.com/in/igirb/). Your feedback and suggestions are always welcome!
