@@ -12,6 +12,13 @@ Get ready to immerse yourself in the world of Stackoverflow with our China-inspi
 - **Data Dynamo**: Behind the scenes, PostgreSQL works tirelessly to efficiently manage our vast database of questions and answers.
 - **Frontend Tricks**: Empowered by React Vite, our frontend dazzles with lightning-fast performance and cutting-edge features, offering users an immersive experience like never before.
 
+## Built With
+* [![React][React.js]][React-url]
+* [![Node][NodeJs]][NodeJs-url]
+* [![Postgres][PostgreSQL]][Postgres-url]
+* [![SpringBoot][Spring]][SpringBoot-url]
+* [![Java][Java]][Java-url]
+
 ## Installation Guide 🛠️
 
 Ready to dive in? Follow these simple steps to set up "Stackoverflow China Edition" on your machine:
