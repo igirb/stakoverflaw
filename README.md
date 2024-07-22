@@ -33,6 +33,11 @@ git clone <REPO_LINK>
 
 Configure your database connection by setting up environmental variables within the project. Ensure you have the following variables set: `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_URL`.
 
+Configure the application.properties file with your PostgreSQL database credentials.
+![image](https://github.com/blankapsz/stackoverflow/assets/134206215/0ac224a5-e940-4379-b318-8170f0034a71)
+
+Create the PSQL table by running the query from table_creation.sql
+
 ### 3. Install dependencies by running:
 
 `npm install`
