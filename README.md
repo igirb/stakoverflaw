@@ -23,33 +23,44 @@ Get ready to immerse yourself in the world of Stackoverflow with our China-inspi
 
 Ready to dive in? Follow these simple steps to set up "Stackoverflow China Edition" on your machine:
 
-### 1. Clone the Repository
+### Prerequisites:
+
+<p>Install the latest NPM</p>
+<p>Java Development Kit(JDK21) installed</p>
+<p>PostgreSQL database set up</p>
+
+<p>Frontend Setup: </p>
+<ul>
+  <li>cd frontend</li>
+  <li>npm install</li>
+</ul>
+
+### Installation
+
+ 1. Clone the Repository
 
 ```bash
 git clone <REPO_LINK>
 ```
 
-### 2. Database Setup
-
-Configure your database connection by setting up environmental variables within the project. Ensure you have the following variables set: `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_URL`.
-
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+   
+3. Backend Setup:
 Configure the application.properties file with your PostgreSQL database credentials.
 ![image](https://github.com/blankapsz/stackoverflow/assets/134206215/0ac224a5-e940-4379-b318-8170f0034a71)
 
-Create the PSQL table by running the query from table_creation.sql
+5. Create the PSQL table by running the query from table_creation.sql
 
-### 3. Install dependencies by running:
+6. Run backend
 
-`npm install`
-
-### 4. Start React:
-
-`cd frontend` -> `cd stackoverflow_frontend` -> `npm run dev`
-
-### 5. Start SpringApplication:
-
-`java -jar StackoverflowTwApplication.jar`
-
+7. Navigate to the stackoverflow_frontend folder and run this command:
+   ```sh
+   npm run dev
+   ```
+   
 ## Features
 
 🟣 Register with fictional information (username and password, not yet encrypted).
