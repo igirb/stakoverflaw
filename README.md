@@ -57,3 +57,16 @@ Configure your database connection by setting up environmental variables within 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 If you found this project useful and would like to get in touch, feel free to contact me on [LinkedIn](https://www.linkedin.com/in/igirb/). Your feedback and suggestions are always welcome!
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[PostgreSQL]:https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
+[Postgres-url]:https://www.postgresql.org/
+[Spring]:https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white
+[SpringBoot-url]:https://spring.io/projects/spring-boot
+[NodeJs]:https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[NodeJs-url]:https://nodejs.org/en
+[Java]:https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
+[Java-url]:https://www.java.com/en/
